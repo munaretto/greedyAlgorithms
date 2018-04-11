@@ -26,7 +26,7 @@ public class IntervalGenerator{
 
   public TreeSet generateInterval(){
 
-    for(int i = 0; i < 10; i++){
+    for(int i = 0; i < 1000000; i++){
       int start = (int) (Math.random()*(INICIAL_ENDING_TIME - INICIAL_BEGINNING_TIME)) + INICIAL_BEGINNING_TIME;
       int end = (int) (Math.random()*(FINAL_ENDING_TIME - FINAL_BEGINNING_TIME)) + FINAL_BEGINNING_TIME;
 
