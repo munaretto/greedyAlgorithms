@@ -39,38 +39,33 @@ public class Processor{
   }
 
     /**@
-     * Method responsible for calculation the average between the results given by both 'optimalAlgorithm' or
+     * Method responsible for calculation the average between the results given by 'optimalAlgorithm' or
      * 'subOptimalAlgorithm' methods.
-     * @param results the array containing the outputs of both 'optimalAlgorithm' or 'subOptimalAlgorithm' methods.
-     * @return an Integer with the average between the results given by both 'optimalAlgorithm' or
+     * @param results the array containing the outputs of 'optimalAlgorithm' or 'subOptimalAlgorithm' methods.
+     * @return an Integer with the average between the results given by 'optimalAlgorithm' or
      * 'subOptimalAlgorithm' methods.
      */
   public double average (int[] results){
       double sum = 0.0;
-      for(short i = 0; i < 10; i++){
-
+      for(short i = 0; i < results.length -1; i++){
+        sum += results[i];
       }
-      return sum/10;
+      return sum/results.length;
   }
 
     /**@
-     *
-     * @param results
-     * @return
+     * This method is responsible for calculating the standard deviation between the results given by
+     * 'optimalAlgorithm' and 'subOptimalAlgorithm' methods.
+     * @param results the array containing the outputs of 'optimalAlgorithm' or 'subOptimalAlgorithm' methods.
+     * @return an Integer with the average between the results given by 'optimalAlgorithm' or
+     * 'subOptimalAlgorithm' methods.
      */
   public double stdDeviation (int[] results){
       double sum = 0.0;
-      for(short i = 0; i < 10; i++){
-
+      double avg = average(results);
+      for(short i = 0; i < results.length -1; i++){
+        sum += Math.pow((results[i] - avg),2);
       }
-      return sum;
-  }
-
-    /**@
-     *
-     * @param path
-     */
-  public void writeResults (String path){
-
+      return Math.sqrt(sum/3);
   }
 }
