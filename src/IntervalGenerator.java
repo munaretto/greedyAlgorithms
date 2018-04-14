@@ -14,26 +14,27 @@ import java.util.TreeSet;
  */
 
 public class IntervalGenerator{
-  private TreeSet[] sets;
   IntervalFactory factory;
 
     /**
-     * Constructor method of the class, responsible for initializing the TreeSet and IntervalFactory used,
-     * respectively, to store and generate the interval sets.
+     * Constructor method of the class, responsible for initializing the IntervalFactory, used to store and generate
+     * the interval sets.
      */
   public IntervalGenerator(){
-    sets = new TreeSet[10];
     factory = new IntervalFactory();
   }
 
-    /**@
-     * This method is responsible for generating 10 interval, each one with 10^6 elements. This is possible due the
-     * calling of IntervalFactory.
-     */
-  public void generateIntervalSet(){
-    for (short i = 0; i < sets.length - 1/ i++;){
+  /**@
+   * This method is responsible for generating 10 interval sets, each one with 10^6 elements. This is possible due the
+   * calling of IntervalFactory function.
+   * @return
+   */
+  public TreeSet[] generateIntervalSet(){
+    TreeSet[] sets = new TreeSet[10];
+    for (short i = 0; i <= sets.length - 1; i++){
         sets[i] = factory.getIntervalSet();
     }
+    return sets;
   }
 
     /**@
