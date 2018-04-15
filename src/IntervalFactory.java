@@ -34,10 +34,6 @@ public class IntervalFactory {
             }
             intervalSet.add(new Interval(start,end));
         }
-        for(Interval in : intervalSet){
-            System.out.println("Inicio: "+in.getStartValue()+" | Fim: "+in.getFinalValue());
-        }
-        System.out.println("");
         return intervalSet;
     }
 }
