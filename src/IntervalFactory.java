@@ -10,13 +10,13 @@ public class IntervalFactory {
     private final int INICIAL_ENDING_TIME = 999;
     private final int FINAL_BEGINNING_TIME = 1;
     private final int FINAL_ENDING_TIME = 1000;
-    private TreeSet<Interval> intervalSet;
+
 
     /**@
      * Constructor method, responsible for initializing the TreeSet.
      */
     public IntervalFactory(){
-        intervalSet = new TreeSet<>();
+
     }
 
     /**@
@@ -24,7 +24,8 @@ public class IntervalFactory {
      * @return a TreeSet containing 10^6 intervals between 0 and 1000;
      */
     public TreeSet<Interval> getIntervalSet(){
-        for(int i = 0; i < 100000; i++){
+        TreeSet<Interval> intervalSet = new TreeSet<>();
+        for(int i = 0; i < 1000000; i++){
             int start = (int) (Math.random()*(INICIAL_ENDING_TIME - INICIAL_BEGINNING_TIME)) + INICIAL_BEGINNING_TIME;
             int end = (int) (Math.random()*(FINAL_ENDING_TIME - FINAL_BEGINNING_TIME)) + FINAL_BEGINNING_TIME;
 

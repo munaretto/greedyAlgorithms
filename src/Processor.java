@@ -51,6 +51,7 @@ public class Processor{
         }
         // At the end of the 10^6 iterations, add the amount of non-overlaping intervals within index i interval set
         optimalResults[i] = selectedIntervals.size();
+        System.out.println("selectedIntervals size is "+selectedIntervals.size());
     }
     for (int j = 0; j < optimalResults.length; j++){
         System.out.println("OPT - Conjunto "+j+": "+optimalResults[j]);
@@ -65,10 +66,8 @@ public class Processor{
      * @param selectedSet
      * @return
      */
-    //TODO PROVAVEL ERRO ESTA AQUI
   private boolean isCompatible(Interval interval, ArrayList<Interval> selectedSet){
       if(interval == null){
-          System.out.println("é null");
           return false;
       }
 
