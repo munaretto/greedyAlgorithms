@@ -1,3 +1,6 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Stack;
@@ -51,13 +54,7 @@ public class Processor{
         }
         // At the end of the 10^6 iterations, add the amount of non-overlaping intervals within index i interval set
         optimalResults[i] = selectedIntervals.size();
-        System.out.println("selectedIntervals size is "+selectedIntervals.size());
     }
-    for (int j = 0; j < optimalResults.length; j++){
-        System.out.println("OPT - Conjunto "+j+": "+optimalResults[j]);
-        System.out.println("OptimalResults has size "+optimalResults.length);
-    }
-
   }
 
     /**
@@ -109,10 +106,6 @@ public class Processor{
           // At the end of the 10^6 iterations, add the amount of non-overlaping intervals within index i interval set
           subOptimalResults[i] = selectedIntervals.size();
       }
-      for (int j = 0; j < subOptimalResults.length; j++){
-          System.out.println("SUBOPT - Conjunto "+j+": "+subOptimalResults[j]);
-          System.out.println("SubOptimalResults has size "+subOptimalResults.length);
-      }
   }
 
     /**@
@@ -146,20 +139,46 @@ public class Processor{
       return Math.sqrt(sum/3);
   }
 
-
-  public String callOptimalSolution(){
+    /**@
+     *
+     * @return
+     */
+  public Answer callOptimalSolution(){
       optimalResults = new int[10];
       optimalAlgorithm();
       double avg = average(optimalResults);
       double stdDev = stdDeviation(optimalResults);
-      return avg+";"+stdDev;
+      return new Answer(optimalResults, stdDev, avg);
   }
 
-  public String callSubOptimalSolution(){
+    /**@
+     *
+     * @return
+     */
+  public Answer callSubOptimalSolution(){
       subOptimalResults = new int[10];
       subOptimalAlgorithm();
       double avg = average(subOptimalResults);
       double stdDev = stdDeviation(subOptimalResults);
-      return avg+";"+stdDev;
+      return new Answer(subOptimalResults, stdDev, avg);
+  }
+
+    /**@
+     *
+     * @throws IOException
+     */
+  public  void callExportIntervals() throws IOException {
+      BufferedWriter bw = new BufferedWriter(new FileWriter("generated-intervals"));
+      for (int i = 0; i < intervalSet.length; i++) {
+          bw.write("Set #"+i);
+          bw.newLine();
+          bw.newLine();
+        for(Interval in : intervalSet[i]){
+            bw.write("Start: "+in.getStartValue()+" | End: "+in.getFinalValue());
+            bw.newLine();
+        }
+          bw.newLine();
+          bw.newLine();
+      }
   }
 }

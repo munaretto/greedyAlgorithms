@@ -37,12 +37,4 @@ public class IntervalGenerator{
     return sets;
   }
 
-    /**@
-     * This method is in charge of export all the elements of a given set to a text file, associated with a path.
-     * @param set the set from which the method is going to read and export the date.
-     * @param path where the destination file can be found in the computer.
-     */
-  public void writeIntervalSet (String path, TreeSet<Interval> set){
-
-  }
 }
