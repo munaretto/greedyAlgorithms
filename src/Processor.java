@@ -117,9 +117,10 @@ public class Processor{
      */
   public double average (int[] results){
       double sum = 0.0;
-      for(short i = 0; i < results.length -1; i++){
+      for(short i = 0; i < results.length; i++){
         sum += results[i];
       }
+      System.out.println("SOMA:"+sum);
       return sum/results.length;
   }
 
@@ -133,7 +134,7 @@ public class Processor{
   public double stdDeviation (int[] results){
       double sum = 0.0;
       double avg = average(results);
-      for(short i = 0; i < results.length -1; i++){
+      for(short i = 0; i < results.length; i++){
         sum += Math.pow((results[i] - avg),2);
       }
       return Math.sqrt(sum/3);
